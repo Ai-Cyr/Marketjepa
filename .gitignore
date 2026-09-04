@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Data & artefacts
+data/
+checkpoints/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.parquet
+*.csv
+!tests/fixtures/*.csv
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/

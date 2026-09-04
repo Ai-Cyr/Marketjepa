@@ -1,0 +1,35 @@
+# Configuration par défaut de MarketJEPA.
+# Fenêtre = context_len + target_len pas de temps ; chaque patch regroupe `patch_len` pas.
+
+data:
+  context_len: 64        # pas de temps visibles par l'encodeur de contexte
+  target_len: 16         # pas de temps à prédire dans l'espace latent
+  num_features: 5        # ret, range, body, gap, log-volume-change
+  stride: 1              # décalage entre deux fenêtres consécutives
+  normalize: zscore      # zscore | none
+
+model:
+  patch_len: 4
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  dim_feedforward: 256
+  predictor_dim: 64
+  predictor_depth: 2
+  dropout: 0.1
+
+train:
+  batch_size: 64
+  epochs: 10
+  lr: 0.001
+  weight_decay: 0.05
+  warmup_steps: 100
+  ema_momentum_start: 0.996
+  ema_momentum_end: 1.0
+  masking: future        # future | block
+  num_target_blocks: 2   # utilisé par la stratégie "block"
+  seed: 42
+  device: auto           # auto | cpu | cuda | mps
+  checkpoint_dir: checkpoints
+  log_every: 50
+  num_workers: 0
