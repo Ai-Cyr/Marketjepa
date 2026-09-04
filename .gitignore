@@ -14,9 +14,9 @@ venv/
 htmlcov/
 
 # Data & artefacts
-data/
-checkpoints/
-runs/
+/data/
+/checkpoints/
+/runs/
 *.pt
 *.pth
 *.ckpt
